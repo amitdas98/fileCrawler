@@ -31,7 +31,6 @@ const download = async (url, filename, callback) => {
             .pipe(file)
             .on('error', (err) => {
                 fs.unlink(filename);
-                console.log(err);
                 progressBar.stop();
                 return callback(err.message);
             });
@@ -94,8 +93,12 @@ const main = async () => {
         const downloadableLinks = 
         await getLinksFromPage(url);
         if (downloadableLinks.length > 0) {
-            const shouldIDownload = prompt("should i download?");
-            if (shouldIDownload === "yes" || shouldIDownload === "y") {
+            const currentTime = new Date().toDateString() + "-" + new Date().toLocaleTimeString();
+            const jsonContent = JSON.stringify(downloadableLinks);
+            const file = await fs.createWriteStream(`./logs/${currentTime}-${seriesName}-log.json`);
+            await file.write(JSON.stringify(downloadableLinks));
+            const shouldIDownload = prompt(`should i download ${downloadableLinks.length} files? : `);
+            if (shouldIDownload.startsWith("y")) {
                 fs.mkdir(`../${seriesName}`, function(err) {
                     if (err) {
                       console.log(err)

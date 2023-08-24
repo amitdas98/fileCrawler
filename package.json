@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amitdas98/fileCrawler.git"
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/amitdas98/fileCrawler#readme",
   "dependencies": {
+    "cli-progress": "^3.12.0",
+    "fs": "^0.0.1-security",
+    "linkinator": "^5.0.2",
+    "prompt-sync": "^4.2.0",
     "request": "^2.88.2"
   }
 }
