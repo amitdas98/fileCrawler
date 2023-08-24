@@ -1,0 +1,22 @@
+{
+  "name": "filecrawler",
+  "version": "1.0.0",
+  "description": "to download files one by one ",
+  "main": "download.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amitdas98/fileCrawler.git"
+  },
+  "author": "Amit Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amitdas98/fileCrawler/issues"
+  },
+  "homepage": "https://github.com/amitdas98/fileCrawler#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
