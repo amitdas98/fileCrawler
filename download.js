@@ -69,17 +69,18 @@ const getLinksFromPage = async (url) => {
 }
 
 const downloadMultiple = async (downloadableLinks, seriesName) => {
+    let startCount = 1;
     for (let links of downloadableLinks) {
         const check = {
             link : links.url,
             name : `../${seriesName}/${links.name}`
         }
         let b = 2;
-        const result = await download(links.url, `../${seriesName}/${links.name}`, (info) => {
-            console.log(info);
-        });
+        const result = await download(links.url, `../${seriesName}/${links.name}`, () => {});
         if (result.success) {
-            console.log(`downloaded ${links.name}`);
+            console.log(`downloaded ${links.name} \n`);
+            console.log(`downloaded ${startCount}/${downloadableLinks.length} \n`);
+            startCount++;
         } else {
             console.log(`failed to download ${links.name}`);
         }
